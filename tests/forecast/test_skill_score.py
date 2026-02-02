@@ -9,7 +9,7 @@ def test_skill_score_of_persistence_is_zero():
 
 
 @pytest.mark.skip(reason="needs reference values from v2 model")
-def test_pinball_loss_quantiles():
+def test_pinball_loss_by_quantile():
     observed = [10.0, 12.0, 14.0]
     forecast = [11.0, 12.0, 13.0]
     assert skill_score(observed, forecast) > 0.0

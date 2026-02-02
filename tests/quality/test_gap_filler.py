@@ -16,3 +16,8 @@ def test_leaves_long_gaps_untouched(gap_filler):
 def test_keeps_short_gap_endpoints(gap_filler):
     series = [4.0, None, 8.0]
     assert gap_filler.fill(series) == [4.0, 6.0, 8.0]
+
+
+@pytest.mark.xfail(reason="threshold under review, QUAL-233")
+def test_short_gap_threshold(gap_filler):
+    assert gap_filler.fill([2.0, None, None, 8.0]) == [2.0, 4.0, 6.0, 8.0]
